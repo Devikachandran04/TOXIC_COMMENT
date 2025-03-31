@@ -4,19 +4,19 @@
     <title>Toxic Detector</title>
     <style>
         body {
-            background: linear-gradient(45deg, #FF9A9E, #FAD0C4, #FAD0C4, #A18CD1);
+            background: linear-gradient(45deg, #FF9A9E, #FAD0C4, #A18CD1);
             height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            font-family: Arial;
         }
         .container {
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             width: 80%;
             max-width: 500px;
             text-align: center;
@@ -29,22 +29,6 @@
             border-radius: 10px;
             font-size: 16px;
             margin: 15px 0;
-            background: #f9f9f9;
-        }
-        button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
-        }
-        .mod-link {
-            display: block;
-            margin-top: 20px;
-            color: #555;
         }
         .result {
             font-size: 24px;
@@ -56,22 +40,16 @@
 <body>
     <div class="container">
         <h1 style="color: #FF4757;">Toxic Comment Detector</h1>
-        
         <form method="POST" action="/check">
-            <textarea name="comment" placeholder="Type your comment here..." required>{{ comment if comment }}</textarea>
-            <div>
-                <button type="submit">Check</button>
-                <button type="reset">Clear</button>
-            </div>
+            <textarea name="comment" placeholder="Type comment here..." required>{{ comment if comment }}</textarea>
+            <button type="submit">Check</button>
         </form>
-        
         {% if result %}
         <div class="result" style="color: {{ color }};">
             {{ result }}
         </div>
         {% endif %}
-        
-        <a href="/moderator" class="mod-link">Moderator Access</a>
+        <a href="/moderator">Moderator View</a>
     </div>
 </body>
 </html>
